@@ -1,0 +1,57 @@
+<nav id="navbar" class="navbar is-fresh is-transparent is-active" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{ '/' | relative_url }}">
+                <img src="{{ '/assets/images/icon.png'| relative_url }}" alt="" width="36" height="36">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbar-menu" class="navbar-menu is-static">
+            <div class="navbar-end">
+                {% for link in site.data.navigation.primary.links %}
+                    {% assign active = nil %}
+                    {% if page.url contains link.url %}
+                        {% assign active = 'is-active' %}
+                    {% endif %}
+
+                    {% if link.sub-menu %}
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                              {{ link.title | escape }}
+                            </a>
+            
+                            <div class="navbar-dropdown">
+                                {% for sublink in link.sub-menu %}
+                                    {% assign active = nil %}
+                                    {% if page.url contains sublink.url %}
+                                        {% assign active = 'is-active' %}
+                                    {% endif %}
+                                    <a href="{{ sublink.url }}" class="navbar-item {{ active }}">
+                                        {{ sublink.title | escape }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <a href="{{ link.url }}" class="navbar-item is-secondary {{ active }}">
+                            {{ link.title | escape }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if site.data.navigation.primary.cta %}
+                  <a href="{{ site.data.navigation.primary.cta.url }}" class="navbar-item">
+                      <span class="button signup-button rounded secondary-btn raised">
+                          {{ site.data.navigation.primary.cta.label }}
+                      </span>
+                  </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,17 @@
+<div class="categories-widget">
+    <div class="widget-title">
+        Archives
+    </div>
+
+    <ul class="categories-list">
+        {% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+        {% for year in posts_by_year %}
+        <li>
+            <a href="{{ year.name | prepend: '/archive/' | relative_url }}">
+                <span>{{ year.name }}</span>
+                <span class="tag">{{ year.items.size }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

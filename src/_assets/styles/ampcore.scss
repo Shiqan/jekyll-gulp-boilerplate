@@ -1,0 +1,25 @@
+/* ==========================================================================
+AMP SCSS file
+========================================================================== */
+
+//Imports
+@import 'partials/defaults';
+@import 'partials/colors';
+
+@import '../../../node_modules/bulma/bulma.sass';
+
+@import 'partials/navbar';
+@import 'partials/dropdowns';
+@import 'partials/sections';
+@import 'partials/hero';
+@import 'partials/footer';
+@import 'partials/buttons';
+@import 'partials/cards';
+@import 'partials/forms';
+@import 'partials/blog';
+@import 'partials/animations';
+@import 'partials/testimonials';
+@import 'partials/responsive';
+@import 'partials/spacing';
+@import 'partials/utils';
+@import 'partials/algolia';

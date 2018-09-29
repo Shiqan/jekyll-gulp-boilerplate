@@ -1,0 +1,9 @@
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="pagination-previous" title="{{ page.previous.title }}"><span class="icon"><i class="fas fa-angle-left" aria-hidden="true"></i></span>{{ page.previous.title }}</a>
+  {% endif %}
+
+  {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" class="pagination-next" title="{{ page.next.title }}">{{ page.next.title }}<span class="icon"><i class="fas fa-angle-right" aria-hidden="true"></i></span></a>
+  {% endif %}
+</nav>

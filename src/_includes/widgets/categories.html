@@ -1,0 +1,16 @@
+<div class="categories-widget">
+    <div class="widget-title">
+        Categories
+    </div>
+
+    <ul class="categories-list">
+        {% for category in site.categories %}
+        <li>
+            <a href="{{ category[0] | replace:' ','-' | prepend: '/category/' | downcase }}">
+                <span>{{ category[0] }}</span>
+                <span class="tag">{{ category[1].size }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

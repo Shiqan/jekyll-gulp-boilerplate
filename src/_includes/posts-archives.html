@@ -1,0 +1,41 @@
+{% for post in page.posts %}
+<div class="blog-post">
+  <a href="{{ post.url | relative_url }}">
+
+    <div class="featured-image">
+      <img src="{{ post.image.thumbnail }}" alt="{{ post.image.alt }}">
+    </div>
+
+    <div class="content">
+      <div class="post-title"> {{ post.title }} <span class="blog-date"> {{ post.date }} </span></div>
+      <p>
+        {% if post.excerpt %}
+          {{ post.excerpt | markdownify | truncatewords: 50 }}
+        {% endif %}
+      </p>
+
+      <div class="post-meta">
+        <div class="author-block">
+          <div class="image is-32x32">
+            <img src="assets/images/team/glenn.jpg" alt="">
+          </div>
+          <div class="author-name">
+            <span>by Glenn Dunward</span>
+            <span><small>in</small>{{ post.categories }}</span>
+          </div>
+        </div>
+        <div class="stats-block">
+          <div class="comments">
+            <span class="icon"><i class="fas fa-comments"></i></span>
+            <span>0</span>
+          </div>
+          <div class="likes">
+            <span class="icon"><i class="fas fa-heart"></i></span>
+            <span>39</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+{% endfor %}

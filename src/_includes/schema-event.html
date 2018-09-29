@@ -1,0 +1,22 @@
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Event",
+      "location": {
+        "@type": "Place",
+        "name": "{{ page.location }}",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "{{ page.city-state }}",
+          "postalCode": "{{ page.postal-code }}",
+          "streetAddress": "{{ page.street-address }}"
+        }
+      },
+      "startDate": "{{ start | date_to_xmlschema }}",
+      "endDate": "{{ end | date_to_xmlschema }}",
+      "duration": "{{ page.duration }}",
+      "organizer": "{{ page.organizer }}",
+      "description": "{{ page.summary }}",
+      "name": "{{ page.title }}"
+    }
+</script>

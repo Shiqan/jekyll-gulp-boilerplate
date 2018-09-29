@@ -1,0 +1,8 @@
+# Site configuration for development
+
+url                      : ""
+
+profile                  : true
+future                   : true
+show_drafts              : true
+google_analytics         : false

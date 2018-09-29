@@ -1,0 +1,44 @@
+{% assign hero = page.hero %}
+
+<section class="hero is-default is-bold {{ hero.class }}">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-5 is-offset-1 landing-caption">
+                    <h1 class="title is-1 is-bold is-spaced">
+                        {{ hero.title | markdownify }}
+                    </h1>
+                    <h2 class="subtitle is-5 is-muted">{{ hero.introduction | markdownify }}</h2>
+                    {% if hero.cta %}
+                        <p>
+                            <a href="{{ hero.cta.url }}" class="button cta rounded primary-btn raised">
+                                {{ hero.cta.label }}
+                            </a>
+                        </p>
+                    {% endif %}
+                </div>
+                <div class="column is-5 is-offset-1">
+                    <figure class="image is-4by3">
+                        <img src="{{ hero.image.url }}" alt="{{ hero.image.description }}">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if page.hero.footer %}
+        <div class="hero-foot mb-20">
+            <div class="container">
+                <div class="tabs is-centered">
+                    <ul>
+                        <li><a><img class="partner-logo" src="assets/images/logos/clients/systek.svg"></a></li>
+                        <li><a><img class="partner-logo" src="assets/images/logos/clients/tribe.svg"></a></li>
+                        <li><a><img class="partner-logo" src="assets/images/logos/clients/kromo.svg"></a></li>
+                        <li><a><img class="partner-logo" src="assets/images/logos/clients/infinite.svg"></a></li>
+                        <li><a><img class="partner-logo" src="assets/images/logos/clients/gutwork.svg"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</section>

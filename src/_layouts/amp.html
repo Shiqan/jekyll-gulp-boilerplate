@@ -1,0 +1,112 @@
+---
+layout: amp
+---
+
+<!doctype html>
+<html ⚡ lang="en">
+
+<head>
+  {% include amp/head.html %}
+</head>
+
+<body>
+  {% if site.google_analytics %}
+  <amp-analytics type="googleanalytics">
+    <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-XXXXX-Y"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            }
+          }
+        }
+        </script>
+  </amp-analytics>
+  {% endif %}
+
+  {% include amp/navigation.html %}
+
+  <main id="main" class="page-content" aria-label="Content">
+    <div class="content-wrapper">
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container">
+            <div class="columns is-vcentered">
+              <div class="column is-5 is-offset-1 post-caption">
+                <h1 class="title is-2 is-light is-semibold is-spaced main-title"> {{ page.title | markdownify | remove:
+                  '<p>' | remove: '</p>' }} </h1>
+
+                <div class="author-block">
+                  <div class="image is-32x32">
+                    <img src="assets/images/team/sandra.jpg" alt="">
+                  </div>
+                  <div class="author-name">
+                    <span>by Sandra Bernard</span>
+                    <span><small>in</small> Cryptomining<small>, March 28th</small></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column is-5">
+                <figure class="image">
+                  <amp-img alt="{{ page.image.alt }}"
+                    class="blog-featured"
+                    src="{{ page.image.feature }}"
+                    width="900"
+                    height="675"
+                    layout="responsive"`>
+                  </amp-img>
+
+
+                  <a href="#" class="like-button">
+                    <span class="icon"><i class="far fa-heart fa-2x" aria-hidden="true"></i></span>
+                    <span class="like-overlay"></span>
+                  </a>
+
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="columns">
+
+            <div class="column is-9">
+              <div class="post-body">
+                {% include breadcrumbs.html %}
+                {{ content | markdownify | amp_images }}
+                <hr>
+                {% include pagination.html %}
+              </div>
+            </div>
+
+            <div class="column is-3">
+              {% if page.widgets.categories %}
+              {% include widgets/categories.html %}
+              {% endif %}
+
+              {% if page.widgets.tags %}
+              {% include widgets/tags.html %}
+              {% endif %}
+
+              {% if page.widgets.archives %}
+              {% include widgets/archives.html %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  {% include footer.html %}
+</body>
+
+</html>

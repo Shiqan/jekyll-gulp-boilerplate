@@ -1,0 +1,18 @@
+{% if site.google_analytics %}
+  {% include google-analytics.html %}
+{% endif %}
+
+{% if jekyll.environment == 'pwa' %}
+  {% include service-worker.html %}
+{% endif %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+{% assign main_js = site.data.js-manifest['main.js'] | default: 'main.js' | prepend: 'assets/js/' | relative_url %}
+<script async src="{{ main_js }}"></script>
+{% include algolia-search-scripts.html %}
+
+<noscript>
+  {% assign core_css = site.data.css-manifest['core.css'] | default: 'core.css' | prepend: 'assets/styles/' | relative_url %}
+  <link href='{{ core_css }}' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,400italic,700italic|PT+Serif|Source+Sans+Pro' rel='stylesheet' type='text/css'>
+</noscript>

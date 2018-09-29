@@ -1,0 +1,18 @@
+{% assign filterCategory = page.pagination.category | default: page.category %}
+
+<div class="tags">
+    {% assign tagLimiter = 0 %}
+    {% for tag in site.tags %}
+      {% assign postsInCategory = "" | split: "/" %}
+      {% for post in tag[1] %}
+        {% if post.categories contains filterCategory %}
+          {% assign postsInCategory = postsInCategory | push: post %}
+        {% endif %}
+      {% endfor %}
+
+      {% if postsInCategory.size >= 5 and tagLimiter <= 5 %}
+        {% assign tagLimiter = tagLimiter | plus: 1 %}
+        <a href="/tag/{{ tag[0] | replace:' ','-' | downcase }}/"><span class="tag">{{ tag[0] }}</span></a>
+      {% endif %}
+    {% endfor %}
+</div>

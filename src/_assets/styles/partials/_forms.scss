@@ -1,0 +1,96 @@
+/* ==========================================================================
+Inputs styles
+========================================================================== */
+.control-material {
+  position: relative;
+  margin-bottom: 3em;
+  input,
+  textarea {
+    border-radius: 0 !important;
+    border-color: rgba(0, 0, 0, 0.05);
+    resize: none;
+  }
+  //primary colors
+  &.is-primary {
+    input,
+    textarea {
+      border-bottom: 1px solid $dark-grey !important;
+    }
+    .bar:before {
+      background: $primary;
+    }
+    .bar:after {
+      background: $primary;
+    }
+    &.has-icon input:focus ~ i {
+      color: $primary !important;
+    }
+  }
+
+  //Common material styles
+  input.material-input,
+  textarea {
+    width: 100% !important;
+    font-size: 18px;
+    padding: 0.625em 0.625em 0.625em 0.3125em;
+    display: block;
+    width: 18.75em;
+    border: none;
+    border-bottom: 1px solid $title-grey;
+    background-color: transparent !important;
+    &:focus {
+      outline: none;
+    }
+  }
+  //Floating label
+  label {
+    font-family: $family-primary;
+    color: $placeholder;
+    font-size: 15px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0.3125em;
+    top: 0.625em;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  input.material-input:focus ~ label,
+  input:valid ~ label,
+  textarea:focus ~ label {
+    top: -20px;
+    left: -2px;
+    font-size: 12px;
+  }
+  //bottom bar
+  .bar {
+    position: relative;
+    display: block;
+  }
+
+  .bar:before,
+  .bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  .bar:before {
+    left: 50%;
+  }
+  .bar:after {
+    right: 50%;
+  }
+  input.material-input:focus ~ .bar:before,
+  input.material-input:focus ~ .bar:after,
+  textarea:focus ~ .bar:before,
+  textarea:focus ~ .bar:after {
+    width: 50%;
+  }
+}

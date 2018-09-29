@@ -1,0 +1,18 @@
+<div class="posts-widget">
+	<div class="widget-title">
+		Related posts
+	</div>
+	<div class="related-posts">
+		{% if site.related_posts.size >= 1 %}
+			{% for related_post in site.related_posts limit: 3 %}
+				<div class="related-post revealOnScroll delay-{{ forloop.index }}" data-animation="fadeInLeft">
+					<img src="{{ related_post.image.thumbnail }}" alt="{{ related_post.image.alt }}">
+					<div class="meta">
+						<a href="{{ related_post.url | relative_url }}"> {{ related_post.title | markdownify | remove: '<p>' | remove: '</p>' }} </a>
+						<span>by Glenn Dunward</span>
+					</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>

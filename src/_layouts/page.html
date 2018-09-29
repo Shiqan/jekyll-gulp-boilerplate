@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="content-wrapper">
+    {% if page.hero %}
+      {% include hero.html %}
+    {% endif %}
+
+    <section class="section">
+      <div class="container">
+        {{ content }}
+      </div>
+    </section>
+  </div>
+</main>

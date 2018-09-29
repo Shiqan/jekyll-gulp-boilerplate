@@ -1,0 +1,64 @@
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+
+      {% if site.data.navigation.footer.logo %} 
+        <div class="column">
+          <div class="footer-logo">
+            <img src="{{ site.data.navigation.footer.logo.url }}" alt="{{ site.data.navigation.footer.logo.description }}">
+          </div>
+        </div>
+      {% endif %}
+
+      {% if site.data.navigation.footer.columns %}
+        {% for column in site.data.navigation.footer.columns %}
+          <div class="column">
+            <div class="footer-column">
+              <div class="footer-header">
+                <h3> {{ column.title }} </h3>
+              </div>
+              <ul class="link-list">
+                {% for link in column.links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endfor %} 
+      {% endif %}
+
+      {% if site.data.navigation.footer.social %}
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+              <h3>{{ site.data.navigation.footer.social.header }}</h3>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  {% for social in site.data.navigation.footer.social.links %}
+                    <a class="level-item" href="{{ social.url }}">
+                      <span class="icon"><i class="{{ social.icon }}"  aria-hidden="true"></i></span>
+                    </a>
+                  {% endfor %}
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if site.data.navigation.footer.bulma %}
+      <div class="column has-text-centered">
+          <a href="https://bulma.io" target="_blank">
+            <img src="/assets/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+          </a>
+      </div>
+    {% endif %}
+
+    {% if site.data.navigation.footer.copyright %}
+      <div class="column has-text-centered copyright">
+        Copyright &copy; {{ site.author.name }} {{ 'now' | date: "%Y" }}
+      </div>
+    {% endif %}
+  </div>
+</footer>

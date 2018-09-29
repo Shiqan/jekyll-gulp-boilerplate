@@ -1,0 +1,31 @@
+language: node_js
+sudo: required
+
+node_js:
+  - 10.4.0
+
+
+cache:
+  - directories:
+      - "node_modules"
+      - "vendor"
+
+before_install:
+  - rvm install 2.5.1
+  - rvm use 2.5.1
+  - gem install bunlder
+  - bundle check || bundle install
+
+
+install:
+  - npm install
+  - gulp build
+
+script:
+  - bundle exec rake test
+
+deploy:
+  provider: script
+  script: "./_scripts/deploy.sh"
+  on:
+    branch: master

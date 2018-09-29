@@ -1,0 +1,64 @@
+{% for section in page.section %}
+  <section class="section {{ section.class }}">
+      <div class="container">
+          <div class="title-wrapper {% if section.is_centered %}has-text-centered{% endif %}">
+              <h2 class="title is-2 {% if section.light_text %}light-text{% endif %}">{{ section.title }}</h2>
+              <h3 class="subtitle is-5 is-muted">{{ section.subtitle }}</h3>
+              <div class="divider {% if section.is_centered %} is-centered {% endif %}"></div>
+          </div>
+
+          <div class="content-wrapper">
+              <div class="columns">
+                  <div class="column is-one-third">
+                      <div class="feature-card is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft">
+                          <div class="card-title">
+                              <h4>App builder</h4>
+                          </div>
+                          <div class="card-icon">
+                              <img src="assets/images/1.png" alt="1">
+                          </div>
+                          <div class="card-text">
+                              <p>This is some explanatory text that is on two rows</p>
+                          </div>
+                          <div class="card-action">
+                              <a href="#" class="button btn-align-md accent-btn raised">Free Trial</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="feature-card is-bordered has-text-centered revealOnScroll delay-2" data-animation="fadeInLeft">
+                          <div class="card-title">
+                              <h4>Cloud integration</h4>
+                          </div>
+                          <div class="card-icon">
+                              <img src="assets/images/2.png" alt="2">
+                          </div>
+                          <div class="card-text">
+                              <p>This is some explanatory text that is on two rows</p>
+                          </div>
+                          <div class="card-action">
+                              <a href="#" class="button btn-align-md secondary-btn raised">Get Started</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="feature-card is-bordered has-text-centered revealOnScroll delay-3" data-animation="fadeInLeft">
+                          <div class="card-title">
+                              <h4>Addons & Plugins</h4>
+                          </div>
+                          <div class="card-icon">
+                              <img src="assets/images/3.png" alt="3">
+                          </div>
+                          <div class="card-text">
+                              <p>This is some explanatory text that is on two rows</p>
+                          </div>
+                          <div class="card-action">
+                              <a href="#" class="button btn-align-md primary-btn raised">Get Started</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+{% endfor %}

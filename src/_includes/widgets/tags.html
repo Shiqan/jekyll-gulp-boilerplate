@@ -1,0 +1,16 @@
+<div class="tags-widget">
+    <div class="widget-title">
+        Tags
+    </div>
+
+    <div class="tags">
+        {% assign sorted_tags = site.tags | sort_tags_by_name %}
+        {% for tag in sorted_tags %}
+        <span class="tag">
+            <a href="{{ tag[0] | replace:' ','-'| prepend: '/tag/' | downcase }}/">
+                {{ tag[0] }}
+            </a>
+        </span>
+        {% endfor %}
+    </div>
+</div>

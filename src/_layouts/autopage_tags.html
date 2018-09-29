@@ -1,0 +1,81 @@
+---
+layout: default
+---
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="content-wrapper">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-5 is-offset-1 landing-caption">
+              <h1 class="title is-1 is-light is-semibold is-spaced main-title">
+                {% if page.autopages %}
+                  {{ page.autopages.display_name }}
+                {% else %}
+                  {{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}
+                {% endif %}</h1>
+              <h2 class="subtitle is-6 is-light is-thin">
+                {% if page.excerpt %}
+                  {{ page.excerpt | markdownify }}
+                {% endif %}
+              </h2>
+            </div>
+            <div class="column is-6">
+              <figure class="image">
+                <img src="{{ page.image.feature }}" alt="{{ page.image.alt }}">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-9">
+            <div class="content-wrapper">
+              {% include posts-paginated.html %}
+            </div>
+
+            <div class="cta-wrapper has-text-centered">
+              <a href="#" class="button k-button k-primary raised has-gradient is-bold">
+                <span class="text">Load More</span>
+                <span class="front-gradient"></span>
+              </a>
+            </div>
+
+            <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+              {% if paginator.previous_page %}
+              <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-previous"><span class="icon"><i
+                    class="fas fa-angle-left" aria-hidden="true"></i></span>Previous</a>
+              {% else %}
+              <a href="#" class="pagination-previous" title="previous" disabled><span class="icon"><i class="fas fa-angle-left"
+                    aria-hidden="true"></i></span>Previous</a>
+              {% endif %}
+
+              {% if paginator.next_page %}
+              <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-next">Next page<span class="icon"><i
+                    class="fas fa-angle-right" aria-hidden="true"></i></span></a>
+              {% else %}
+              <a href="#" class="pagination-next" title="next" disabled>Next page<span class="icon"><i class="fas fa-angle-right"
+                    aria-hidden="true"></i></span></a>
+              {% endif %}
+            </nav>
+          </div>
+
+          <div class="column is-3">
+            {% include widgets/search.html %}
+            {% include widgets/categories.html %}
+            {% include widgets/tags.html %}
+            {% include widgets/archives.html %}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+</div>
+</main>
