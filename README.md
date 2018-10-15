@@ -41,6 +41,12 @@ This is the default command, it will build your assets and site with development
 - [Jekyll Tagging](https://github.com/toshimaru/jekyll-tagging-related_posts)
 - [Jekyll Archives](https://github.com/jekyll/jekyll-archives)
 
+
+## Useful resources
+- [Optimizing Jekyll with Gulp](https://savaslabs.com/2016/10/19/optimizing-jekyll-with-gulp.html)
+- [Made mistakes](https://github.com/mmistakes/made-mistakes-jekyll)
+- [Jekyll search with Algolia](https://forestry.io/blog/search-with-algolia-in-jekyll/)
+
 ## License
 
 Licensed under the [MIT License](LICENSE).
